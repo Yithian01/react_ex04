@@ -19,6 +19,7 @@ function App() {
     if(inputValue){
       const newList = {content : inputValue}
       dispatch(addList(newList));
+      setInputValue('');
     }else{
       alert("내용을 입력하세요.");  
     }
