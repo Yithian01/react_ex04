@@ -3,23 +3,24 @@ import axios from 'axios';
 // Thunk 은 toolkit에 default로 설치가 되었다.
 // createAsyncThunk  : Thunk 비동기 작업
 
+
+
  export const getList = createAsyncThunk(
     "GET_List",
     async()=>{
         try{    
-            const res = await axios.get("http://localhost:8000/list")
+            const res = await axios.get("https://my-json-server.typicode.com/Yithian01/react_ex04/list")
             return res.data;
         }catch(err){
             console.log(err);
         }
     }
 )
-
 export const addList = createAsyncThunk(
     "ADD_LIST",
     async(newList)=>{
         try{    
-            const res = await axios.post("http://localhost:8000/list",newList)
+            const res = await axios.post("https://my-json-server.typicode.com/Yithian01/react_ex04/list",newList)
             return res.data;
         }catch(err){
             console.log(err);
@@ -31,7 +32,7 @@ export const deleteList = createAsyncThunk(
     "DELETE_LIST",
     async(id)=>{
         try{    
-            const res = await axios.delete(`http://localhost:8000/list/${id}`)
+            const res = await axios.delete(`https://my-json-server.typicode.com/Yithian01/react_ex04/list/${id}`)
             return id;
         }catch(err){
             console.log(err);
@@ -43,7 +44,7 @@ export const UpdateList = createAsyncThunk(
     "UPDATE_LIST",
     async({id,content})=>{ // content의 이름을 다른 값으로 넣으면 안된다. // 이름의 축약 때문에 key 값이 같다면 가능하다.
         try{    
-            const res = await axios.put(`http://localhost:8000/list/${id}`,{content:content});  // 
+            const res = await axios.put(`https://my-json-server.typicode.com/Yithian01/react_ex04/list/${id}`,{content:content});  // 
             return {id,content};
         }catch(err){
             console.log(err);
